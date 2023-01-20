@@ -1,4 +1,4 @@
-import { GlobalStyle } from "./Globalstyles";
+import "./Globalstyles.sass";
 import RotaMain from "./routes";
 import { ApiContextProvider } from "./context/apiContext";
 
@@ -8,7 +8,6 @@ function App() {
       <ApiContextProvider>
       <RotaMain />
       </ApiContextProvider>
-      <GlobalStyle />
     </div>
   );
 }

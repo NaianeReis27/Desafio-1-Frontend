@@ -1,18 +1,15 @@
 import * as React from "react";
-import Container from "./styles";
-import Info from "../Info";
+import "./styles.sass";
 interface IProps {
   children: React.ReactNode;
 }
 
 function Modal({ children }: IProps) {
   return (
-    <Container>
       <div className="modal">
-        <div>{children}</div>
-        <Info/>
+           {children}
       </div>
-    </Container>
+    
   );
 }
 

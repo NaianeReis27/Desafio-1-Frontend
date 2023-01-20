@@ -47,6 +47,7 @@
     "@types/react": "^18.0.18",
     "@types/react-dom": "^18.0.6",
     "@types/styled-components": "^5.1.26",
+    "sass": "^1.57.1",
     "typescript": "^4.8.2"
   }
 }

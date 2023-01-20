@@ -1,13 +1,14 @@
 import Modal from "../components/Modal";
-import ContainerInput from "../components/ContainerInput";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ApiContext } from "../context/apiContext";
+import Info from "../components/Info";
+import { FieldValues } from "react-hook-form";
 const MainPage = () => {
-
-  const {setData} = useContext(ApiContext)
+  
+  const { setData, setResult } = useContext(ApiContext);
 
   const textLabel = [
     {
@@ -21,35 +22,62 @@ const MainPage = () => {
     {
       label: "Informe o percenntual de MDR*",
       data: "mdr",
-    }
+    },
   ];
 
   const formSchema = yup.object().shape({
-    amount: yup.number().required("Valor da transação é obrigatório"),
-    installments: yup.number().required("Número de parcelas é obrigatório"),
-    mdr: yup.number().required("A taxa é obrigatório"),
+    amount: yup
+      .number()
+      .typeError("O campo precisa ser preenchido por um número")
+      .positive()
+      .required()
+      .max(100000000, "O valor máximo é de R$ 100.000.000")
+      .min(1800, "Valor mínimo de R$ 1.800."),
+    installments: yup
+      .number()
+      .typeError("O campo precisa ser preenchido por um número")
+      .required()
+      .positive()
+      .integer()
+      .max(12, "Maximo 12 parcelas"),
+    mdr: yup
+      .number()
+      .typeError("O campo precisa ser preenchido por um número")
+      .positive(),
   });
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<FieldValues>({
     resolver: yupResolver(formSchema),
   });
+  useEffect(() => {
+    if (Object.values(errors).length > 0) {
+      setResult(null);
+    }
+  }, [errors, setResult]);
 
-  const onSubmit = (data:any) => {
-    setData(data)
+  const onChange = (data: any) => {
+    setData(data);
   };
 
   return (
     <Modal>
       {
-        <form onChange={handleSubmit(onSubmit)}>
-          {textLabel.map((ele, index) => (
-            <ContainerInput {...ele} register={register} />
-          ))}
-        </form>
+        <>
+          <form onChange={handleSubmit(onChange)}>
+            {textLabel.map((ele) => (
+              <div className="Info">
+                <label>{ele.label}</label>
+                <input type={"number"} {...register(ele.data)} />
+                <p>{errors[ele.data]?.message?.toString()}</p>
+              </div>
+            ))}
+          </form>
+          <Info></Info>
+        </>
       }
     </Modal>
   );
