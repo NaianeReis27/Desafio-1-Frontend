@@ -1,10 +1,9 @@
-import  "./styles.sass";
 import { useContext } from "react";
 import { ApiContext } from "../../context/apiContext";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import InputInfo from "../InfoDays";
+import InputDays from "../InputDays";
 import { FieldValues} from "react-hook-form";
 
 const data_input = [
@@ -14,7 +13,7 @@ const data_input = [
   { title: 90, price: 0.0, key: "data4" },
 ];
 
-function Info() {
+function FormDays() {
   const {setDays} = useContext(ApiContext)
 
   const formSchema = yup.object().shape({
@@ -42,10 +41,10 @@ function Info() {
   return (
     <form onChange={handleSubmit(onChange)}>
       {data_input.map((ele, index) => (
-        <InputInfo key={index} ele={ele} getValues={getValues} index={index} register={register} errors= {errors} />
+        <InputDays key={index} ele={ele} getValues={getValues} index={index} register={register} errors= {errors} />
       ))}
     </form>
   );
 }
 
-export default Info;
+export default FormDays;

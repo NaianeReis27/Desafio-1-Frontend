@@ -18,13 +18,11 @@ interface Idata {
   key: string;
 }
 
-
-function InputInfo({ ele, register, index, getValues }: IProps) {
+function InputDays({ ele, register, index, getValues }: IProps) {
 
   const {result} = useContext(ApiContext);
 
   const [char, setchar] = useState(2)
-
   const value = getValues(ele.key)
 
 
@@ -32,8 +30,8 @@ function InputInfo({ ele, register, index, getValues }: IProps) {
      if(value){
       setchar(value.length)
      }
-
   },[value])
+  
   
   return (
     <div className="infoDays">
@@ -51,4 +49,4 @@ function InputInfo({ ele, register, index, getValues }: IProps) {
   );
 };
 
-export default InputInfo;
+export default InputDays;
