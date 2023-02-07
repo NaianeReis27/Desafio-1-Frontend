@@ -21,7 +21,6 @@ interface Idata {
 function InputDays({ ele, register, index, getValues }: IProps) {
 
   const {result} = useContext(ApiContext);
-
   const [char, setchar] = useState(2)
   const value = getValues(ele.key)
 
@@ -31,7 +30,6 @@ function InputDays({ ele, register, index, getValues }: IProps) {
       setchar(value.length)
      }
   },[value])
-  
   
   return (
     <div className="infoDays">
@@ -43,7 +41,7 @@ function InputDays({ ele, register, index, getValues }: IProps) {
       />
       <p>{Number(getValues(ele.key)) === 1? `dia`: "dias"}</p>
       {
-        result? <span>{`R$ ${result[index]}`}</span> : <span>R$ 0,00</span>
+        result && result[getValues(ele.key)] ?<span>{`R$ ${result[getValues(ele.key)]}`}</span> : <span>R$ 0,00</span>
       }
     </div>
   );

@@ -34,17 +34,15 @@ export const ApiContextProvider = ({ children }: ApiContextProps) => {
   const [result, setResult] = useState<null | number[]>(null);
   const [days, setDays] = useState<number[]>([1, 15, 30, 90]);
   const [data, setData] = useState<Idata[]| null>(null);
-  const [err , setErr] = useState<boolean>(false)
+  const [err , setErr] = useState<boolean>(false);
 
   useEffect(() => {
     if(data!= null){
-      console.log(data)
       api
       .post("", { ...data, days: days })
       .then((res) => res)
       .then((res) => {
-        setResult(Object.values(res.data));
-        console.log(res.data);
+        setResult(res.data);
       })
       .catch((err) => setResult(null));
     }

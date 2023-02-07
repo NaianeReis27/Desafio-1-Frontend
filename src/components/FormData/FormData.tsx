@@ -32,7 +32,7 @@ const FormData = () => {
       .positive("O valor tem que ser maior que 0.")
       .required()
       .max(100000000, "O valor máximo é de R$ 100.000.000")
-      .min(1800, "Valor mínimo de R$ 1.800."),
+      .min(1800, "Valor mínimo de R$ 1.800,00."),
     installments: yup
       .number()
       .typeError("O campo precisa ser preenchido por um número.")
@@ -43,7 +43,8 @@ const FormData = () => {
     mdr: yup
       .number()
       .typeError("O campo precisa ser preenchido por um número.")
-      .positive("O valor tem que ser maior que 0."),
+      .positive("O valor tem que ser maior que 0.")
+      .max(15.53, "O mdr maximo é 15,53."),
   });
 
   const {
