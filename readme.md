@@ -10,18 +10,18 @@ amount, mdr e installments.
 Este desafio tem como objetivo te avaliar como desenvolvedor Front-end: react, SASS, CSS e a utilização de uma API.
 
 Link da api => https://frontend-challenge-7bu3nxh76a-uc.a.run.app
+link do vercel => https://desafio-1-frontend-naianereis27.vercel.app
 
-#  Objetivo
+![](img/img.gif)
 
-O objetivo do desafio é validar seus conhecimentos nos seguintes tópicos:
-JavaScript: aproveite o desafio para mostrar tudo o que sabe sobre as novas features da linguagem.
-React: siga boas práticas e mantenha o código idiomático. Busque utilizar features recentes e se mantenha atento a problemas comuns como re-renders desnecessários.
-TypeScript: Opcional. Caso opte por usá-lo, mostre todo o seu domínio.
-Componentização
-CSS: seja optando por vanilla, pré-processadores ou CSS-in-JS.
-Testes unitários
-Testes end-to-end
-Analisaremos seu teste com base nos critérios acima, então dê um show para que fiquemos impressionados.
+# Objetivo do projeto
+
+- `Objetivo 1`: JavaScript: aproveite o desafio para mostrar tudo o que sabe sobre as novas features da linguagem.
+- `Objetivo 2`: React: siga boas práticas e mantenha o código idiomático. Busque utilizar features recentes e se mantenha atento a problemas comuns como re-renders desnecessários.
+- `Objetivo 3`: TypeScript: Opcional. Caso opte por usá-lo, mostre todo o seu domínio.
+- `Objetivo 4`: CSS: seja optando por vanilla, pré-processadores ou CSS-in-JS.
+- `Objetivo 5`: Componentização.
+
 
 ## Tecnologias
 
